@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>English Tenses Quiz</title>
-  <script src="/_sdk/element_sdk.js"></script>
-  <script src="/_sdk/data_sdk.js"></script>
   <style>
     body {
       box-sizing: border-box;
@@ -25,6 +23,8 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       overflow: hidden;
+      background-color: #d4e7f5;
+      color: #1a4d7a;
     }
 
     .quiz-wrapper {
@@ -105,12 +105,14 @@
       font-size: 2.5rem;
       margin: 0;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      color: #1a4d7a;
     }
 
     .subtitle {
       font-size: 1.1rem;
       margin-bottom: 2rem;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      color: #1a4d7a;
     }
 
     .plant-tracker {
@@ -120,6 +122,7 @@
       border-radius: 15px;
       backdrop-filter: blur(10px);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      background-color: #e3f2fd;
     }
 
     .plant-display {
@@ -131,6 +134,7 @@
       font-size: 1rem;
       margin-top: 0.5rem;
       font-weight: 600;
+      color: #1a4d7a;
     }
 
     .screen {
@@ -162,20 +166,24 @@
       margin-bottom: 0.5rem;
       font-weight: 600;
       font-size: 1rem;
+      color: #1a4d7a;
     }
 
     input[type="text"] {
       width: 100%;
       padding: 0.75rem;
       font-size: 1rem;
-      border: 2px solid transparent;
+      border: 2px solid #8bb8e8;
       border-radius: 8px;
       transition: all 0.3s ease;
+      background-color: #e3f2fd;
+      color: #1a4d7a;
     }
 
     input[type="text"]:focus {
       outline: none;
       transform: scale(1.02);
+      border-color: #5b9bd5;
     }
 
     .difficulty-buttons {
@@ -194,6 +202,8 @@
       transition: all 0.3s ease;
       font-weight: 600;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: #5b9bd5;
+      color: #ffffff;
     }
 
     .difficulty-btn:hover {
@@ -207,6 +217,7 @@
       margin-bottom: 2rem;
       backdrop-filter: blur(10px);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      background-color: #e3f2fd;
     }
 
     .question-number {
@@ -214,6 +225,7 @@
       margin-bottom: 1rem;
       opacity: 0.8;
       font-weight: 600;
+      color: #1a4d7a;
     }
 
     .question-text {
@@ -221,6 +233,7 @@
       margin-bottom: 2rem;
       font-weight: 500;
       line-height: 1.6;
+      color: #1a4d7a;
     }
 
     .answers {
@@ -232,13 +245,15 @@
     .answer-btn {
       padding: 1rem 1.5rem;
       font-size: 1rem;
-      border: 2px solid transparent;
+      border: 2px solid #8bb8e8;
       border-radius: 10px;
       cursor: pointer;
       transition: all 0.3s ease;
       text-align: left;
       font-weight: 500;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #e3f2fd;
+      color: #1a4d7a;
     }
 
     .answer-btn:hover:not(:disabled) {
@@ -253,10 +268,16 @@
 
     .answer-btn.correct {
       animation: correctPulse 0.6s ease;
+      background-color: #4caf50;
+      color: white;
+      border-color: #4caf50;
     }
 
     .answer-btn.incorrect {
       animation: incorrectShake 0.5s ease;
+      background-color: #f44336;
+      color: white;
+      border-color: #f44336;
     }
 
     @keyframes correctPulse {
@@ -291,6 +312,8 @@
       font-weight: 600;
       transition: all 0.3s ease;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: #5b9bd5;
+      color: #ffffff;
     }
 
     .next-btn:hover:not(:disabled) {
@@ -315,6 +338,8 @@
       border-radius: 20px;
       margin: 2rem 0;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      background-color: #5b9bd5;
+      color: #ffffff;
     }
 
     .badge-title {
@@ -333,6 +358,7 @@
       margin: 2rem 0;
       font-weight: 700;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      color: #1a4d7a;
     }
 
     .celebration-emojis {
@@ -372,6 +398,8 @@
       font-weight: 600;
       transition: all 0.3s ease;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: #8bb8e8;
+      color: #ffffff;
     }
 
     .restart-btn:hover {
@@ -383,9 +411,12 @@
       text-align: center;
       padding: 2rem;
       font-size: 1.2rem;
+      color: #1a4d7a;
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
  </head>
  <body>
@@ -393,16 +424,16 @@
    <div class="background" id="background"></div>
    <div class="content">
     <div class="header">
-     <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;"><a href="https://vk.com/club221025676" target="_blank" rel="noopener noreferrer"> <img src="https://i.imgur.com/QC0aRsL.jpeg" alt="Logo" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"> </a>
-      <div class="title" id="quizTitle">
+     <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;"><a href="https://vk.com/club221025676" target="_blank" rel="noopener noreferrer"> <img src="https://i.imgur.com/QC0aRsL.jpeg" alt="Logo" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" onerror="this.style.display='none'"> </a>
+      <div class="title">
        ❄️ English Tenses Master Quiz 📚
       </div>
      </div>
-     <div class="subtitle" id="welcomeMessage">
+     <div class="subtitle">
       Test your knowledge of Simple, Continuous, and Perfect tenses!
      </div>
     </div>
-    <div class="plant-tracker" id="plantTracker">
+    <div class="plant-tracker">
      <div class="plant-display" id="plantDisplay">
       🌱
      </div>
@@ -421,7 +452,7 @@
      </div>
     </div><!-- Quiz Screen -->
     <div class="screen" id="quizScreen">
-     <div class="question-card" id="questionCard">
+     <div class="question-card">
       <div class="question-number" id="questionNumber"></div>
       <div class="question-text" id="questionText"></div>
       <div class="answers" id="answersContainer"></div><button class="next-btn" id="nextBtn" disabled>Next Question ➡️</button>
@@ -440,117 +471,75 @@
       <div class="score-display" id="finalScore"></div>
       <div id="plantFinal" style="font-size: 5rem; margin: 2rem 0;"></div><button class="restart-btn" id="restartBtn">🔄 Take Quiz Again</button>
      </div>
-    </div><!-- Loading Screen -->
-    <div class="screen" id="loadingScreen">
-     <div class="loading">
-      ⏳ Loading quiz...
-     </div>
     </div>
    </div>
    <div class="celebration-emojis" id="celebrationContainer"></div>
   </div>
   <script>
-    const defaultConfig = {
-      background_color: "#d4e7f5",
-      surface_color: "#e3f2fd",
-      text_color: "#1a4d7a",
-      primary_action_color: "#5b9bd5",
-      secondary_action_color: "#8bb8e8",
-      font_family: "Segoe UI",
-      font_size: 16,
-      quiz_title: "❄️ English Tenses Master Quiz 📚",
-      welcome_message: "Test your knowledge of Simple, Continuous, and Perfect tenses!",
-      completion_message: "You've mastered English tenses!",
-      try_again_message: "Try Again!"
-    };
-
     const questions = {
       easy: [
-        // Present Simple
         { question: "I ___ to school every day.", answers: ["go", "goes", "going", "went"], correct: 0 },
         { question: "She ___ milk in her coffee.", answers: ["like", "likes", "liking", "liked"], correct: 1 },
         { question: "They ___ football on weekends.", answers: ["play", "plays", "playing", "played"], correct: 0 },
         { question: "He ___ his homework after dinner.", answers: ["do", "does", "doing", "did"], correct: 1 },
         { question: "We ___ English every Monday.", answers: ["study", "studies", "studying", "studied"], correct: 0 },
-        // Past Simple
         { question: "I ___ a movie yesterday.", answers: ["watch", "watches", "watched", "watching"], correct: 2 },
         { question: "She ___ her friend last week.", answers: ["visit", "visits", "visited", "visiting"], correct: 2 },
         { question: "They ___ pizza for dinner.", answers: ["eat", "eats", "ate", "eating"], correct: 2 },
         { question: "He ___ a letter to his mom.", answers: ["write", "writes", "wrote", "writing"], correct: 2 },
-        // Future Simple
         { question: "I ___ you tomorrow.", answers: ["call", "calls", "will call", "called"], correct: 2 },
         { question: "She ___ to Paris next month.", answers: ["go", "goes", "will go", "went"], correct: 2 },
         { question: "They ___ the project soon.", answers: ["finish", "finishes", "will finish", "finished"], correct: 2 },
-        // Present Continuous
         { question: "I ___ TV right now.", answers: ["watch", "watches", "am watching", "watched"], correct: 2 },
         { question: "She ___ a book at the moment.", answers: ["read", "reads", "is reading", "reading"], correct: 2 },
         { question: "They ___ in the park now.", answers: ["play", "plays", "are playing", "played"], correct: 2 },
-        // Past Continuous
         { question: "I ___ when you called.", answers: ["sleep", "slept", "was sleeping", "am sleeping"], correct: 2 },
         { question: "She ___ dinner at 7 PM.", answers: ["cook", "cooked", "was cooking", "is cooking"], correct: 2 },
-        // Present Perfect
         { question: "I ___ this movie before.", answers: ["see", "saw", "have seen", "am seeing"], correct: 2 },
         { question: "She ___ her homework already.", answers: ["finish", "finished", "has finished", "is finishing"], correct: 2 },
         { question: "They ___ to London twice.", answers: ["go", "went", "have been", "are going"], correct: 2 }
       ],
       medium: [
-        // Present Simple
         { question: "The train ___ at 9 AM every morning.", answers: ["arrive", "arrives", "arriving", "arrived"], correct: 1 },
         { question: "My brother ___ in a hospital.", answers: ["work", "works", "working", "worked"], correct: 1 },
         { question: "Birds ___ south in winter.", answers: ["fly", "flies", "flying", "flew"], correct: 0 },
         { question: "The sun ___ in the east.", answers: ["rise", "rises", "rising", "rose"], correct: 1 },
-        // Past Simple
         { question: "We ___ a wonderful time at the party.", answers: ["have", "has", "had", "having"], correct: 2 },
         { question: "The company ___ a new product last year.", answers: ["launch", "launches", "launched", "launching"], correct: 2 },
         { question: "She ___ her keys in the car.", answers: ["leave", "leaves", "left", "leaving"], correct: 2 },
-        // Future Simple
         { question: "The conference ___ place next week.", answers: ["take", "takes", "will take", "took"], correct: 2 },
         { question: "I ___ you know as soon as possible.", answers: ["let", "lets", "will let", "letting"], correct: 2 },
-        // Present Continuous
         { question: "The students ___ for their exams right now.", answers: ["prepare", "prepares", "are preparing", "prepared"], correct: 2 },
         { question: "My parents ___ to move to a new house.", answers: ["plan", "plans", "are planning", "planned"], correct: 2 },
         { question: "The company ___ several new employees.", answers: ["hire", "hires", "is hiring", "hired"], correct: 2 },
-        // Past Continuous
         { question: "While I ___ home, it started to rain.", answers: ["walk", "walked", "was walking", "am walking"], correct: 2 },
         { question: "They ___ a meeting when the fire alarm rang.", answers: ["have", "had", "were having", "are having"], correct: 2 },
         { question: "She ___ to music while doing her homework.", answers: ["listen", "listened", "was listening", "is listening"], correct: 2 },
-        // Future Continuous
         { question: "This time tomorrow I ___ on a beach.", answers: ["relax", "relaxed", "will be relaxing", "am relaxing"], correct: 2 },
-        // Present Perfect
         { question: "We ___ each other for ten years.", answers: ["know", "knew", "have known", "are knowing"], correct: 2 },
         { question: "He ___ three cups of coffee today.", answers: ["drink", "drank", "has drunk", "is drinking"], correct: 2 },
-        // Past Perfect
         { question: "She realized she ___ her wallet at home.", answers: ["leave", "left", "had left", "has left"], correct: 2 },
         { question: "By the time we arrived, the movie ___ .", answers: ["start", "started", "had started", "has started"], correct: 2 }
       ],
       hard: [
-        // Present Simple
         { question: "The Earth ___ around the Sun in 365 days.", answers: ["revolve", "revolves", "revolving", "revolved"], correct: 1 },
         { question: "Photosynthesis ___ when plants absorb sunlight.", answers: ["occur", "occurs", "occurring", "occurred"], correct: 1 },
-        // Past Simple
         { question: "The archaeologists ___ ancient artifacts during the excavation.", answers: ["discover", "discovers", "discovered", "discovering"], correct: 2 },
         { question: "The committee ___ to postpone the decision.", answers: ["vote", "votes", "voted", "voting"], correct: 2 },
         { question: "She ___ her resignation letter last Friday.", answers: ["submit", "submits", "submitted", "submitting"], correct: 2 },
-        // Future Simple
         { question: "The new legislation ___ into effect next year.", answers: ["come", "comes", "will come", "came"], correct: 2 },
         { question: "Scientists predict that technology ___ our lives dramatically.", answers: ["change", "changes", "will change", "changed"], correct: 2 },
-        // Present Continuous
         { question: "The government ___ new environmental policies.", answers: ["implement", "implements", "is implementing", "implemented"], correct: 2 },
         { question: "Researchers ___ a cure for the disease.", answers: ["develop", "develops", "are developing", "developed"], correct: 2 },
-        // Past Continuous
         { question: "While the diplomats ___ , protesters gathered outside.", answers: ["negotiate", "negotiated", "were negotiating", "are negotiating"], correct: 2 },
         { question: "The economy ___ rapidly before the crisis hit.", answers: ["grow", "grew", "was growing", "is growing"], correct: 2 },
-        // Future Continuous
         { question: "By this time next year, she ___ at the university.", answers: ["study", "studied", "will be studying", "is studying"], correct: 2 },
         { question: "They ___ the project throughout the summer.", answers: ["complete", "completed", "will be completing", "are completing"], correct: 2 },
-        // Present Perfect
         { question: "The professor ___ numerous research papers.", answers: ["publish", "published", "has published", "is publishing"], correct: 2 },
         { question: "The organization ___ significant progress recently.", answers: ["make", "made", "has made", "is making"], correct: 2 },
         { question: "I ___ never ___ such determination.", answers: ["see / seen", "saw / seen", "have / seen", "am / seeing"], correct: 2 },
-        // Past Perfect
         { question: "The manuscript ___ before the author became famous.", answers: ["write", "wrote", "had been written", "has been written"], correct: 2 },
         { question: "They realized they ___ an irreversible decision.", answers: ["make", "made", "had made", "have made"], correct: 2 },
-        // Future Perfect
         { question: "By next December, we ___ here for five years.", answers: ["live", "lived", "will have lived", "are living"], correct: 2 },
         { question: "She ___ her degree by the end of this year.", answers: ["complete", "completed", "will have completed", "is completing"], correct: 2 }
       ]
@@ -563,145 +552,10 @@
     let difficulty = "";
     let answeredCurrentQuestion = false;
 
-    const dataHandler = {
-      onDataChanged(data) {
-        // Data is displayed on completion
-      }
-    };
-
-    async function onConfigChange(config) {
-      const backgroundColor = config.background_color || defaultConfig.background_color;
-      const surfaceColor = config.surface_color || defaultConfig.surface_color;
-      const textColor = config.text_color || defaultConfig.text_color;
-      const primaryColor = config.primary_action_color || defaultConfig.primary_action_color;
-      const secondaryColor = config.secondary_action_color || defaultConfig.secondary_action_color;
-      const customFont = config.font_family || defaultConfig.font_family;
-      const baseSize = config.font_size || defaultConfig.font_size;
-
-      document.body.style.backgroundColor = backgroundColor;
-      document.body.style.color = textColor;
-      document.body.style.fontFamily = `${customFont}, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`;
-
-      const quizTitle = document.getElementById('quizTitle');
-      if (quizTitle) {
-        quizTitle.textContent = config.quiz_title || defaultConfig.quiz_title;
-        quizTitle.style.fontSize = `${baseSize * 2.5}px`;
-        quizTitle.style.color = textColor;
-      }
-
-      const welcomeMessage = document.getElementById('welcomeMessage');
-      if (welcomeMessage) {
-        welcomeMessage.textContent = config.welcome_message || defaultConfig.welcome_message;
-        welcomeMessage.style.fontSize = `${baseSize * 1.1}px`;
-        welcomeMessage.style.color = textColor;
-      }
-
-      const plantTracker = document.getElementById('plantTracker');
-      if (plantTracker) {
-        plantTracker.style.backgroundColor = surfaceColor;
-        plantTracker.style.color = textColor;
-      }
-
-      const progressText = document.getElementById('progressText');
-      if (progressText) {
-        progressText.style.fontSize = `${baseSize}px`;
-      }
-
-      const questionCards = document.querySelectorAll('.question-card');
-      questionCards.forEach(card => {
-        card.style.backgroundColor = surfaceColor;
-        card.style.color = textColor;
-      });
-
-      const labels = document.querySelectorAll('label');
-      labels.forEach(label => {
-        label.style.fontSize = `${baseSize}px`;
-        label.style.color = textColor;
-      });
-
-      const inputs = document.querySelectorAll('input[type="text"]');
-      inputs.forEach(input => {
-        input.style.backgroundColor = surfaceColor;
-        input.style.color = textColor;
-        input.style.fontSize = `${baseSize}px`;
-        input.style.borderColor = secondaryColor;
-      });
-
-      const difficultyBtns = document.querySelectorAll('.difficulty-btn');
-      difficultyBtns.forEach(btn => {
-        btn.style.backgroundColor = primaryColor;
-        btn.style.color = '#ffffff';
-        btn.style.fontSize = `${baseSize * 1.2}px`;
-      });
-
-      const questionNumber = document.getElementById('questionNumber');
-      if (questionNumber) {
-        questionNumber.style.fontSize = `${baseSize * 0.9}px`;
-        questionNumber.style.color = textColor;
-      }
-
-      const questionText = document.getElementById('questionText');
-      if (questionText) {
-        questionText.style.fontSize = `${baseSize * 1.3}px`;
-        questionText.style.color = textColor;
-      }
-
-      const answerBtns = document.querySelectorAll('.answer-btn');
-      answerBtns.forEach(btn => {
-        btn.style.backgroundColor = surfaceColor;
-        btn.style.color = textColor;
-        btn.style.fontSize = `${baseSize}px`;
-        btn.style.borderColor = secondaryColor;
-      });
-
-      const nextBtn = document.getElementById('nextBtn');
-      if (nextBtn) {
-        nextBtn.style.backgroundColor = primaryColor;
-        nextBtn.style.color = '#ffffff';
-        nextBtn.style.fontSize = `${baseSize * 1.1}px`;
-      }
-
-      const badge = document.getElementById('badge');
-      if (badge) {
-        badge.style.backgroundColor = primaryColor;
-        badge.style.color = '#ffffff';
-      }
-
-      const badgeTitle = document.getElementById('badgeTitle');
-      if (badgeTitle) {
-        badgeTitle.style.fontSize = `${baseSize * 2}px`;
-      }
-
-      const badgeSubtitle = document.getElementById('badgeSubtitle');
-      if (badgeSubtitle) {
-        badgeSubtitle.style.fontSize = `${baseSize * 1.2}px`;
-      }
-
-      const scoreDisplay = document.getElementById('finalScore');
-      if (scoreDisplay) {
-        scoreDisplay.style.fontSize = `${baseSize * 3}px`;
-        scoreDisplay.style.color = textColor;
-      }
-
-      const restartBtn = document.getElementById('restartBtn');
-      if (restartBtn) {
-        restartBtn.style.backgroundColor = secondaryColor;
-        restartBtn.style.color = '#ffffff';
-        restartBtn.style.fontSize = `${baseSize * 1.1}px`;
-      }
-
-      const loadingText = document.querySelector('.loading');
-      if (loadingText) {
-        loadingText.style.fontSize = `${baseSize * 1.2}px`;
-        loadingText.style.color = textColor;
-      }
-    }
-
     function createWinterBackground() {
       const background = document.getElementById('background');
       background.innerHTML = '';
       
-      // Create snowflakes
       for (let i = 0; i < 50; i++) {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
@@ -713,7 +567,6 @@
         background.appendChild(snowflake);
       }
       
-      // Create floating forest emojis
       const forestEmojis = ['🌲', '🦉', '🦌', '⛄', '✨'];
       for (let i = 0; i < 12; i++) {
         const emoji = document.createElement('div');
@@ -793,8 +646,6 @@
         btn.onclick = () => selectAnswer(index);
         answersContainer.appendChild(btn);
       });
-
-      applyCurrentColors();
     }
 
     function selectAnswer(selectedIndex) {
@@ -833,8 +684,7 @@
       }
     }
 
-    async function showCompletion() {
-      const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
+    function showCompletion() {
       const finalScore = document.getElementById('finalScore');
       const plantFinal = document.getElementById('plantFinal');
       const badgeTitle = document.getElementById('badgeTitle');
@@ -844,37 +694,24 @@
 
       finalScore.textContent = `${score} / ${currentQuestions.length} (${percentage}%)`;
       
-      // Perfect score check
       if (score === currentQuestions.length) {
         badgeTitle.textContent = '🏆 A Master of Tenses 📖';
-        badgeSubtitle.textContent = config.completion_message || defaultConfig.completion_message;
+        badgeSubtitle.textContent = 'You\'ve mastered English tenses!';
         plantFinal.textContent = '🌳';
-        badge.style.backgroundColor = config.primary_action_color || defaultConfig.primary_action_color;
+        badge.style.backgroundColor = '#5b9bd5';
         createCelebration();
       } else {
         badgeTitle.textContent = '❄️ Try Again! 📚';
-        badgeSubtitle.textContent = config.try_again_message || defaultConfig.try_again_message;
+        badgeSubtitle.textContent = 'Keep practicing to improve!';
         if (percentage >= 50) {
           plantFinal.textContent = '🌿';
         } else {
           plantFinal.textContent = '🌱';
         }
-        badge.style.backgroundColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+        badge.style.backgroundColor = '#8bb8e8';
       }
 
       showScreen('completionScreen');
-
-      const result = await window.dataSdk.create({
-        student_name: studentName,
-        difficulty: difficulty,
-        score: score,
-        total_questions: currentQuestions.length,
-        completed_at: new Date().toISOString()
-      });
-
-      if (!result.isOk) {
-        console.error('Failed to save quiz result');
-      }
     }
 
     function createCelebration() {
@@ -907,22 +744,6 @@
       updatePlantGrowth();
     }
 
-    function applyCurrentColors() {
-      const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
-      const surfaceColor = config.surface_color || defaultConfig.surface_color;
-      const textColor = config.text_color || defaultConfig.text_color;
-      const secondaryColor = config.secondary_action_color || defaultConfig.secondary_action_color;
-      const baseSize = config.font_size || defaultConfig.font_size;
-
-      const answerBtns = document.querySelectorAll('.answer-btn');
-      answerBtns.forEach(btn => {
-        btn.style.backgroundColor = surfaceColor;
-        btn.style.color = textColor;
-        btn.style.fontSize = `${baseSize}px`;
-        btn.style.borderColor = secondaryColor;
-      });
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
       createWinterBackground();
 
@@ -941,93 +762,7 @@
       if (restartBtn) {
         restartBtn.addEventListener('click', restartQuiz);
       }
-
-      showScreen('loadingScreen');
     });
-
-    async function initializeApp() {
-      if (window.dataSdk) {
-        const initResult = await window.dataSdk.init(dataHandler);
-        if (!initResult.isOk) {
-          console.error('Failed to initialize data SDK');
-        }
-      }
-
-      if (window.elementSdk) {
-        window.elementSdk.init({
-          defaultConfig,
-          onConfigChange,
-          mapToCapabilities: (config) => ({
-            recolorables: [
-              {
-                get: () => config.background_color || defaultConfig.background_color,
-                set: (value) => {
-                  config.background_color = value;
-                  window.elementSdk.setConfig({ background_color: value });
-                }
-              },
-              {
-                get: () => config.surface_color || defaultConfig.surface_color,
-                set: (value) => {
-                  config.surface_color = value;
-                  window.elementSdk.setConfig({ surface_color: value });
-                }
-              },
-              {
-                get: () => config.text_color || defaultConfig.text_color,
-                set: (value) => {
-                  config.text_color = value;
-                  window.elementSdk.setConfig({ text_color: value });
-                }
-              },
-              {
-                get: () => config.primary_action_color || defaultConfig.primary_action_color,
-                set: (value) => {
-                  config.primary_action_color = value;
-                  window.elementSdk.setConfig({ primary_action_color: value });
-                }
-              },
-              {
-                get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
-                set: (value) => {
-                  config.secondary_action_color = value;
-                  window.elementSdk.setConfig({ secondary_action_color: value });
-                }
-              }
-            ],
-            borderables: [],
-            fontEditable: {
-              get: () => config.font_family || defaultConfig.font_family,
-              set: (value) => {
-                config.font_family = value;
-                window.elementSdk.setConfig({ font_family: value });
-              }
-            },
-            fontSizeable: {
-              get: () => config.font_size || defaultConfig.font_size,
-              set: (value) => {
-                config.font_size = value;
-                window.elementSdk.setConfig({ font_size: value });
-              }
-            }
-          }),
-          mapToEditPanelValues: (config) => new Map([
-            ["quiz_title", config.quiz_title || defaultConfig.quiz_title],
-            ["welcome_message", config.welcome_message || defaultConfig.welcome_message],
-            ["completion_message", config.completion_message || defaultConfig.completion_message],
-            ["try_again_message", config.try_again_message || defaultConfig.try_again_message]
-          ])
-        });
-
-        await onConfigChange(window.elementSdk.config);
-      } else {
-        await onConfigChange(defaultConfig);
-      }
-
-      showScreen('welcomeScreen');
-    }
-
-    initializeApp();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b2f0e6530c48d6e',t:'MTc2NjU2ODM3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b2f28cd00a1f78c',t:'MTc2NjU2OTQ1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
